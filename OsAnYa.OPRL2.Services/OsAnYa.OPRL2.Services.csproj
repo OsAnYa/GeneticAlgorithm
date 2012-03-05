@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mesh.cs" />
+    <Compile Include="MeshService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">
+      <Project>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</Project>
+      <Name>OsAnYa.OPRL2.DomainModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

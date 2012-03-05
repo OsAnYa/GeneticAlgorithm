@@ -5,11 +5,9 @@ using System.Text;
 
 namespace OsAnYa.OPRL2.DomainModel
 {
-    class Algorithm
+    public class Line
     {
-        public void Run(AlgorithmSettings settings)
-        {
-            
-        }
+        public Point P1 { get; set; }
+        public Point P2 { get; set; }
     }
 }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</ProjectGuid>
+    <ProjectGuid>{32722CB9-584D-4E96-8FC4-C5249C07073B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OsAnYa.OPRL2.DomainModel</RootNamespace>
-    <AssemblyName>OsAnYa.OPRL2.DomainModel</AssemblyName>
+    <RootNamespace>OsAnYa.OPRL2.Core</RootNamespace>
+    <AssemblyName>OsAnYa.OPRL2.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,17 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithm.cs" />
-    <Compile Include="AlgorithmSettings.cs" />
-    <Compile Include="Chromosome.cs" />
-    <Compile Include="Generation.cs" />
-    <Compile Include="InitialGeneration.cs" />
-    <Compile Include="InitialLoadType.cs" />
-    <Compile Include="Line.cs" />
-    <Compile Include="Mesh.cs" />
-    <Compile Include="OptimizationModel.cs" />
-    <Compile Include="Point.cs" />
+    <Compile Include="GeneticAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">
+      <Project>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</Project>
+      <Name>OsAnYa.OPRL2.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OsAnYa.OPRL2.Services\OsAnYa.OPRL2.Services.csproj">
+      <Project>{B84E44A7-3ED3-4D4D-AD47-A6E0841A3C65}</Project>
+      <Name>OsAnYa.OPRL2.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

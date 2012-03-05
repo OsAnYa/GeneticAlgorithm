@@ -5,8 +5,10 @@ using System.Text;
 
 namespace OsAnYa.OPRL2.DomainModel
 {
-    class AlgorithmSettings
+    public class AlgorithmSettings
     {
         public InitialLoadType InitialLoadType { get; set; }
+        public OptimizationModel OptModel { get; set; }
+        public int InitialPointCount { get; set; }
     }
 }

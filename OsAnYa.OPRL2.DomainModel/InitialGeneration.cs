@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OsAnYa.OPRL2.Services
+namespace OsAnYa.OPRL2.DomainModel
 {
-    public class Mesh
+    class InitialGeneration : Generation
     {
     }
 }
