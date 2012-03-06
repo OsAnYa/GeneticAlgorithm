@@ -9,7 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsAnYa.OPRL2.Services", "Os
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsAnYa.OPRL2.Core", "OsAnYa.OPRL2.Core\OsAnYa.OPRL2.Core.csproj", "{32722CB9-584D-4E96-8FC4-C5249C07073B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsAnYa.OPRL3.Tests", "OsAnYa.OPRL3.Tests\OsAnYa.OPRL3.Tests.csproj", "{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE836166-AF2C-4FC5-9B7E-EB625F3B45A5}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		OsAnYa.OPRL2.GeneticAlgorithm.vsmdi = OsAnYa.OPRL2.GeneticAlgorithm.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = OsAnYa.OPRL2.GeneticAlgorithm.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -59,6 +71,16 @@ Global
 		{32722CB9-584D-4E96-8FC4-C5249C07073B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{32722CB9-584D-4E96-8FC4-C5249C07073B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{32722CB9-584D-4E96-8FC4-C5249C07073B}.Release|x86.ActiveCfg = Release|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

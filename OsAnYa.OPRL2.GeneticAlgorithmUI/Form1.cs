@@ -35,9 +35,10 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             OptimizationModel optModel = new OptimizationModel(func);
             AlgorithmSettings settings = new AlgorithmSettings()
             {
-                InitialLoadType = InitialLoadType.Box,
+                InitialLoadType = (InitialLoadType)comboBox1.SelectedItem,
                 OptModel = optModel,
-                InitialPointCount = (int)numericUpDown1.Value
+                InitialPointCount = (int)numericUpDown1.Value,
+                SelectionType = SelectionType.Random
             };
             alg.Run(settings);
             DrawRezult(alg);
@@ -49,10 +50,19 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             desc.Scale = 10;
             desc.Asix = true;
             desc.OneStroke = true;
+
+            comboBox1.Items.Add(InitialLoadType.Box);
+            comboBox1.Items.Add(InitialLoadType.TriangleMesh);
+            comboBox1.SelectedItem = InitialLoadType.Box;
+
+            comboBox2.Items.Add(SelectionType.Random);
+            comboBox2.Items.Add(SelectionType.Roulette);
+            comboBox2.SelectedItem = SelectionType.Random;
         }
 
         private void DrawRezult(GeneticAlgorithm alg)
         {
+            desc.Clear();
             desc.DrawMesh(alg.InitialMesh, Pens.Red);
             desc.Update();
         }

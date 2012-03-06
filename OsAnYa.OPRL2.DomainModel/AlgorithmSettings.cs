@@ -10,5 +10,6 @@ namespace OsAnYa.OPRL2.DomainModel
         public InitialLoadType InitialLoadType { get; set; }
         public OptimizationModel OptModel { get; set; }
         public int InitialPointCount { get; set; }
+        public SelectionType SelectionType { get; set; }
     }
 }

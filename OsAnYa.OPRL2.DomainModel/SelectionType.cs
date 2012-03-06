@@ -5,11 +5,9 @@ using System.Text;
 
 namespace OsAnYa.OPRL2.DomainModel
 {
-    class Algorithm
+    public enum SelectionType
     {
-        public void Run(AlgorithmSettings settings)
-        {
-            
-        }
+        Random,
+        Roulette
     }
 }

@@ -53,7 +53,7 @@ namespace OsAnYa.OPRL2.Services
             Point p2 = new Point(optModel, 10, 0);
             Point p3 = new Point(optModel, -10, -10);
             Point p4 = new Point(optModel, 0, -10);
-            Point p5 = new Point(optModel, 10, 10);
+            Point p5 = new Point(optModel, 10, 5);
 
             Line l1 = new Line() { P1 = p1, P2 = p5 };
 
