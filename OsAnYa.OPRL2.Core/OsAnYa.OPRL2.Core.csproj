@@ -40,17 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneticAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">
       <Project>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</Project>
       <Name>OsAnYa.OPRL2.DomainModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OsAnYa.OPRL2.Services\OsAnYa.OPRL2.Services.csproj">
-      <Project>{B84E44A7-3ED3-4D4D-AD47-A6E0841A3C65}</Project>
-      <Name>OsAnYa.OPRL2.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

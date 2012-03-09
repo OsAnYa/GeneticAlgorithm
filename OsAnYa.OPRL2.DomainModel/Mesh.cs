@@ -7,11 +7,11 @@ namespace OsAnYa.OPRL2.DomainModel
 {
     public class Mesh
     {
-        public List<Point> Points { get; set; }
+        public List<Chromosome> Chromosomes { get; set; }
         public List<Line> Lines { get; set; }
         public Mesh()
         {
-            Points = new List<Point>();
+            Chromosomes = new List<Chromosome>();
             Lines = new List<Line>();
         }
     }

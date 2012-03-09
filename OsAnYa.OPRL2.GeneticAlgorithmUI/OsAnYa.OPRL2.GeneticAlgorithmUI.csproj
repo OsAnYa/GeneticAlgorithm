@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\CircleCord.cs" />
     <Compile Include="Drawing\DrawingDesc.cs" />
     <Compile Include="Drawing\DrawingExtension.cs" />
     <Compile Include="Drawing\LineCord.cs" />
@@ -81,13 +82,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsAnYa.OPRL2.Core\OsAnYa.OPRL2.Core.csproj">
-      <Project>{32722CB9-584D-4E96-8FC4-C5249C07073B}</Project>
-      <Name>OsAnYa.OPRL2.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">
+    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.GenAlg.csproj">
       <Project>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</Project>
-      <Name>OsAnYa.OPRL2.DomainModel</Name>
+      <Name>OsAnYa.OPRL2.GenAlg</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

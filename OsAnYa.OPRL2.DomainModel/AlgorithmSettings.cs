@@ -11,5 +11,10 @@ namespace OsAnYa.OPRL2.DomainModel
         public OptimizationModel OptModel { get; set; }
         public int InitialPointCount { get; set; }
         public SelectionType SelectionType { get; set; }
+        public EndCondition EndCondition { get; set; }
+        public int MaxGenerationCount { get; set; }
+        public int SurvivedCount { get; set; }
+        public double MutationChance { get; set; }
+        public int CrossingGenNumber { get; set; }
     }
 }

@@ -49,9 +49,9 @@
     <Compile Include="ChromosomeTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">
+    <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.GenAlg.csproj">
       <Project>{52EC1B00-919F-4ACB-9A3F-8839FAF50953}</Project>
-      <Name>OsAnYa.OPRL2.DomainModel</Name>
+      <Name>OsAnYa.OPRL2.GenAlg</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
 {
     public delegate void DescClick(float x, float y);
 
-    
+
     public class DrawingDesc
     {
         public event DescClick OnClick;
@@ -21,30 +21,23 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
         public int X0 { get; set; }
         public int Y0 { get; set; }
         public bool OneStroke { get; set; }
+        public bool Asix { get; set; }
 
         System.Windows.Forms.PictureBox pictureBox;
 
         List<LineCord> Lines;
         List<TextCord> Texts;
+        List<CircleCord> Circles;
 
         public void AddLine(float x1, float y1, float x2, float y2, System.Drawing.Pen pen)
         {
             Lines.Add(new LineCord(x1, y1, x2, y2, pen));
         }
 
-        public void Update()
+        public void AddCircle(float x, float y, float rpx, Pen pen, bool fill = false)
         {
-            pictureBox.Invalidate();
+            Circles.Add(new CircleCord(x, y, rpx, pen, fill));
         }
-
-        public void Clear()
-        {
-            Lines.Clear();
-            Texts.Clear();
-            pictureBox.Invalidate();
-        }
-        public bool Asix { get; set; }
-
 
         public void AddText(string st, float x, float y, System.Drawing.Font f, System.Drawing.Brush b)
         {
@@ -56,6 +49,21 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             AddText(text, (float)x, (float)y, SystemFonts.DefaultFont, Brushes.Black);
         }
 
+        public void Update()
+        {
+            pictureBox.Invalidate();
+        }
+
+        public void Clear()
+        {
+            Lines.Clear();
+            Texts.Clear();
+            Circles.Clear();
+            pictureBox.Invalidate();
+        }
+
+
+
         public DrawingDesc(System.Windows.Forms.PictureBox picBox)
         {
             md = false;
@@ -65,6 +73,7 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             Y0 = pictureBox.Size.Height / 2;
             Lines = new List<LineCord>();
             Texts = new List<TextCord>();
+            Circles = new List<CircleCord>();
             pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(pictureBox_Paint);
             pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(pictureBox_MouseDown);
             pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(pictureBox_MouseUp);
@@ -115,7 +124,7 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
         void pictureBox_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             md = false;
-            
+
         }
 
         void pictureBox_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -159,7 +168,14 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
                 e.Graphics.DrawString(tc.str, tc.font, tc.brush, GetX(tc.X), GetY(tc.Y));
             }
 
-
+            foreach (var item in Circles)
+            {
+                SolidBrush b = new SolidBrush(item.pen.Color);
+                if (item.Fill)
+                    e.Graphics.FillEllipse(b, GetX(item.X) - item.Rpx, GetY(item.Y) - item.Rpx, item.Rpx * 2, item.Rpx * 2);
+                else
+                    e.Graphics.DrawArc(item.pen, GetX(item.X) - item.Rpx, GetY(item.Y) - item.Rpx, item.Rpx * 2, item.Rpx * 2, 0, 360);
+            }
 
         }
 

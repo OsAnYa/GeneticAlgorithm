@@ -40,9 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MeshService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OsAnYa.OPRL2.DomainModel\OsAnYa.OPRL2.DomainModel.csproj">

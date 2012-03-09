@@ -5,7 +5,9 @@ using System.Text;
 
 namespace OsAnYa.OPRL2.DomainModel
 {
-    class InitialGeneration : Generation
+    public enum EndCondition
     {
+        MaxGenCount
+
     }
 }

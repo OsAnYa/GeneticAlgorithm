@@ -36,11 +36,11 @@ namespace OsAnYa.OPRL2.Services
             Line l1 = new Line() { P1 = p1, P2 = p5 };
 
             Mesh mesh = new Mesh();
-            mesh.Points.Add(p1);
-            mesh.Points.Add(p2);
-            mesh.Points.Add(p3);
-            mesh.Points.Add(p4);
-            mesh.Points.Add(p5);
+            mesh.Chromosomes.Add(new Chromosome(optModel, p1.X1, p1.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p2.X1, p2.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p3.X1, p3.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p4.X1, p4.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p5.X1, p5.X2));
 
             mesh.Lines.Add(l1);
 
@@ -58,11 +58,11 @@ namespace OsAnYa.OPRL2.Services
             Line l1 = new Line() { P1 = p1, P2 = p5 };
 
             Mesh mesh = new Mesh();
-            mesh.Points.Add(p1);
-            mesh.Points.Add(p2);
-            mesh.Points.Add(p3);
-            mesh.Points.Add(p4);
-            mesh.Points.Add(p5);
+            mesh.Chromosomes.Add(new Chromosome(optModel, p1.X1, p1.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p2.X1, p2.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p3.X1, p3.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p4.X1, p4.X2));
+            mesh.Chromosomes.Add(new Chromosome(optModel, p5.X1, p5.X2));
 
             mesh.Lines.Add(l1);
 

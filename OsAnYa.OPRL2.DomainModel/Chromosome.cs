@@ -7,8 +7,11 @@ namespace OsAnYa.OPRL2.DomainModel
 {
     public class Chromosome
     {
+        private static int identity = 0;
         private bool[] m_Genes;
         private OptimizationModel m_OptModel = null;
+        public int Id { get; private set; }
+        public int GId { get; set; }
 
         public double X1
         {
@@ -37,6 +40,12 @@ namespace OsAnYa.OPRL2.DomainModel
 
                 return rezult;
             }
+        }
+
+        public Chromosome CloneByGenes()
+        {
+            Chromosome rezult = new Chromosome(m_OptModel, m_Genes);
+            return rezult;
         }
 
         public double X2
@@ -70,6 +79,7 @@ namespace OsAnYa.OPRL2.DomainModel
 
         public Chromosome(OptimizationModel optModel, double x1, double x2)
         {
+            m_OptModel = optModel;
             m_Genes = new bool[14];
             for (int i = 0; i < m_Genes.Length; i++)
             {
@@ -127,7 +137,29 @@ namespace OsAnYa.OPRL2.DomainModel
                 m_Genes[13] = true;
                 m_Genes[12] = true;
             }
+            Id = identity;
+            identity++;
+        }
 
+        public bool IsValid()
+        {
+            return (X1 <= 10) && (X1 >= -10) && (X2 <= 10) && (X2 >= -10);
+        }
+
+        public bool EqualByGenes(Chromosome chromosome)
+        {
+            bool rezult = true;
+            if (chromosome.Length != Length)
+                rezult = false;
+            else
+            {
+                for (int i = 0; i < Length; i++)
+                {
+                    rezult = rezult && (m_Genes[i] == chromosome[i]);
+                }
+            }
+
+            return rezult;
         }
 
         public Chromosome(OptimizationModel optModel, bool[] genes)
@@ -138,6 +170,8 @@ namespace OsAnYa.OPRL2.DomainModel
             {
                 m_Genes[i] = genes[i];
             }
+            Id = identity;
+            identity++;
         }
 
         public Chromosome Mutate(double chance)

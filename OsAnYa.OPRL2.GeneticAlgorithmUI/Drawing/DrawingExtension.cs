@@ -17,5 +17,10 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
                 desc.AddLine((float)item.P1.X1, (float)item.P1.X2, (float)item.P2.X1, (float)item.P2.X2, pen);
             }
         }
+
+        public static void DrawGeneration(this DrawingDesc desc, Generation generation, Pen pen)
+        {
+
+        }
     }
 }
