@@ -47,6 +47,13 @@ namespace OsAnYa.OPRL2.DomainModel
                                 rezult = true;
                             break;
                         }
+                    case EndCondition.Tolerance:
+                        {
+                            if (Previous != null)
+                                if (Math.Abs(Previous.BestF - BestF) < Settings.Tolerance)
+                                    rezult = true;
+                            break;
+                        }
                     default:
                         {
                             rezult = true;
@@ -134,6 +141,7 @@ namespace OsAnYa.OPRL2.DomainModel
 
             Output = AllFinishChromosome.OrderByDescending(ch => ch.F).Take(Settings.SurvivedCount).ToList();
             BestChromosome = Output[0];
+            BestF = BestChromosome.F;
 
             IsSolved = true;
         }

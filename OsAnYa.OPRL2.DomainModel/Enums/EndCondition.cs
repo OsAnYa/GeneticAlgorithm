@@ -7,7 +7,7 @@ namespace OsAnYa.OPRL2.DomainModel
 {
     public enum EndCondition
     {
-        MaxGenCount
-
+        MaxGenCount,
+        Tolerance
     }
 }

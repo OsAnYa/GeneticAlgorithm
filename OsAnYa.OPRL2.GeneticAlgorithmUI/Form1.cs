@@ -31,7 +31,8 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Text = "";
+            desc.Clear();
             alg = new PGA();
             OptimizationModel optModel = new OptimizationModel(func);
             AlgorithmSettings settings = new AlgorithmSettings()
@@ -44,7 +45,8 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
                 MaxGenerationCount = (int)numericUpDown2.Value,
                 SurvivedCount = (int)numericUpDown3.Value,
                 MutationChance = (double)numericUpDown4.Value,
-                CrossingGenNumber = (int)numericUpDown5.Value
+                CrossingGenNumber = (int)numericUpDown5.Value,
+                Tolerance=(double)numericUpDown6.Value
             };
             alg.Run(settings);
             DrawRezult(alg);
@@ -66,12 +68,24 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             comboBox2.SelectedItem = SelectionType.Random;
 
             comboBox3.Items.Add(EndCondition.MaxGenCount);
+            comboBox3.Items.Add(EndCondition.Tolerance);
             comboBox3.SelectedItem = EndCondition.MaxGenCount;
         }
 
         private Pen[] pens = new Pen[]
         {
-            Pens.Red,Pens.Gray,Pens.Green,Pens.Blue,Pens.Orange,Pens.Black,Pens.Yellow,Pens.Turquoise,Pens.Pink,Pens.Tomato
+            Pens.Red,
+            Pens.Gray,
+            Pens.Green,
+            Pens.Blue,
+            Pens.Orange,
+            Pens.Black,
+            Pens.Yellow,
+            Pens.Turquoise,
+            Pens.Pink,
+            Pens.Tomato,
+            Pens.Azure,
+            Pens.LightGreen
         };
 
         private void DrawRezult(PGA alg)

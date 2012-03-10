@@ -17,6 +17,7 @@ namespace OsAnYa.OPRL2.Core
         public int CallCount { get; private set; }
         public void Run(AlgorithmSettings settings)
         {
+            settings.OptModel.ResetCallCount();
             InitialMesh = MeshService.GetMesh(settings.OptModel, settings.InitialPointCount, settings.InitialLoadType);
             Generations = new List<Generation>();
             Generations.Add(new Generation(InitialMesh.Chromosomes, settings));
