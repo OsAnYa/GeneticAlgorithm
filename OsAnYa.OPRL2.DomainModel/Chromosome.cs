@@ -228,5 +228,6 @@ namespace OsAnYa.OPRL2.DomainModel
             }
             return rezult;
         }
+
     }
 }

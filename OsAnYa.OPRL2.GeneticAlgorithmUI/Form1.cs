@@ -46,7 +46,8 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
                 SurvivedCount = (int)numericUpDown3.Value,
                 MutationChance = (double)numericUpDown4.Value,
                 CrossingGenNumber = (int)numericUpDown5.Value,
-                Tolerance=(double)numericUpDown6.Value
+                Tolerance = (double)numericUpDown6.Value,
+                MutationChanceAfterCrossing = (double)numericUpDown7.Value
             };
             alg.Run(settings);
             DrawRezult(alg);

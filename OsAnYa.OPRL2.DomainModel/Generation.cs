@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+
 using OsAnYa.OPRL2.Services;
 
 namespace OsAnYa.OPRL2.DomainModel
@@ -127,7 +129,7 @@ namespace OsAnYa.OPRL2.DomainModel
             GeneticOperationRezults = new List<Chromosome>();
             foreach (var item in PairsForGeneticOperation)
             {
-                List<Chromosome> pairRezult = CrossingService.DoCrossing(item, Settings.CrossingGenNumber, Settings.MutationChance);
+                List<Chromosome> pairRezult = CrossingService.DoCrossing(item, Settings.CrossingGenNumber, Settings.MutationChanceAfterCrossing);
                 for (int i = 0; i < pairRezult.Count; i++)
                 {
                     pairRezult[i].GId = Id;
@@ -139,7 +141,8 @@ namespace OsAnYa.OPRL2.DomainModel
             AllFinishChromosome.AddRange(AfterFirstMutation);
             AllFinishChromosome.AddRange(GeneticOperationRezults);
 
-            Output = AllFinishChromosome.OrderByDescending(ch => ch.F).Take(Settings.SurvivedCount).ToList();
+            ChromosomeComparer comparer = new ChromosomeComparer();
+            Output = AllFinishChromosome.Distinct(comparer).OrderByDescending(ch => ch.F).Take(Settings.SurvivedCount).ToList();
             BestChromosome = Output[0];
             BestF = BestChromosome.F;
 

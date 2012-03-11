@@ -39,6 +39,11 @@ namespace OsAnYa.OPRL2.Services
             List<Chromosome> rezult = new List<Chromosome>(1);
             Chromosome chr1 = pair.Chr1.CloneByGenes();
             Chromosome chr2 = pair.Chr2.CloneByGenes();
+            for (int i = GenNumber; i < chr1.Length; i++)
+            {
+                chr1[i] = pair.Chr2[i];
+                chr2[i] = pair.Chr1[i];
+            }
             rezult.Add(chr1);
             rezult.Add(chr2);
             return rezult;

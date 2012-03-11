@@ -49,6 +49,7 @@
     <Compile Include="Line.cs" />
     <Compile Include="Mesh.cs" />
     <Compile Include="PGA.cs" />
+    <Compile Include="Services\ChromosomeComparer.cs" />
     <Compile Include="Services\CrossingService.cs" />
     <Compile Include="Services\MeshService.cs" />
     <Compile Include="OptimizationModel.cs" />
