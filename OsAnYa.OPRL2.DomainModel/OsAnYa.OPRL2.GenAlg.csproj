@@ -44,6 +44,7 @@
     <Compile Include="Chromosome.cs" />
     <Compile Include="ChromosomePair.cs" />
     <Compile Include="Enums\EndCondition.cs" />
+    <Compile Include="Enums\MutationType.cs" />
     <Compile Include="Generation.cs" />
     <Compile Include="Enums\InitialLoadType.cs" />
     <Compile Include="Line.cs" />

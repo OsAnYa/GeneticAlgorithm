@@ -35,8 +35,8 @@ namespace OsAnYa.OPRL2.Services
         private static ChromosomePair GetPairRoulette(List<Chromosome> chromosomes)
         {
             ChromosomePair pair = new ChromosomePair();
-            throw new NotImplementedException();
-            return pair;
+            //throw new NotImplementedException();
+            return GetPairRandom(chromosomes);
         }
 
         private static ChromosomePair GetPairRandom(List<Chromosome> chromosomes)

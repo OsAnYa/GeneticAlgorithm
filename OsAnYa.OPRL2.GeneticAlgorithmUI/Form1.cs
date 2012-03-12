@@ -47,7 +47,8 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
                 MutationChance = (double)numericUpDown4.Value,
                 CrossingGenNumber = (int)numericUpDown5.Value,
                 Tolerance = (double)numericUpDown6.Value,
-                MutationChanceAfterCrossing = (double)numericUpDown7.Value
+                MutationChanceAfterCrossing = (double)numericUpDown7.Value,
+                MutationType = (MutationType)comboBox4.SelectedItem
             };
             alg.Run(settings);
             DrawRezult(alg);
@@ -71,6 +72,12 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
             comboBox3.Items.Add(EndCondition.MaxGenCount);
             comboBox3.Items.Add(EndCondition.Tolerance);
             comboBox3.SelectedItem = EndCondition.MaxGenCount;
+
+            comboBox4.Items.Add(MutationType.AfterSelection);
+            comboBox4.Items.Add(MutationType.BeforeSelection);
+            comboBox4.Items.Add(MutationType.Both);
+            comboBox4.SelectedItem = MutationType.Both;
+
         }
 
         private Pen[] pens = new Pen[]
@@ -91,14 +98,19 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
 
         private void DrawRezult(PGA alg)
         {
+
+
             desc.Clear();
             desc.DrawMesh(alg.InitialMesh, Pens.Red);
             for (int i = 0; i < alg.Generations.Count; i++)
             {
-                if (alg.Generations[i].Output != null)
-                    foreach (var item in alg.Generations[i].Output)
+                if (alg.Generations[i].AllFinishChromosome != null)
+                    foreach (var item in alg.Generations[i].AllFinishChromosome)
                     {
-                        desc.AddCircle((float)item.X1, (float)item.X2, (i + 1) * 2, pens[i], false);
+                        SolidBrush b = new SolidBrush(pens[item.GId].Color);
+
+                        desc.AddCircle((float)item.X1, (float)item.X2, 3, pens[item.GId], true);
+                        desc.AddText(item.GId + "." + item.Id, (float)item.X1, (float)item.X2, SystemFonts.SmallCaptionFont, b);
                     }
             }
             desc.Update();

@@ -18,5 +18,6 @@ namespace OsAnYa.OPRL2.DomainModel
         public int CrossingGenNumber { get; set; }
         public double Tolerance { get; set; }
         public double MutationChanceAfterCrossing { get; set; }
+        public MutationType MutationType { get; set; }
     }
 }

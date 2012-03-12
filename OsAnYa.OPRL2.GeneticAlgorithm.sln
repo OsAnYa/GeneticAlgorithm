@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OsAnYa.OPRL2.OptimizationUI", "OsAnYa.OPRL2.OptimizationUI\OsAnYa.OPRL2.OptimizationUI.csproj", "{987CF2D9-558B-4723-99C0-0E9047A414D9}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = OsAnYa.OPRL2.GeneticAlgorithm.vsmdi
@@ -57,6 +59,16 @@ Global
 		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0F682D0A-0F1F-4C68-A537-7904CCC6A34A}.Release|x86.ActiveCfg = Release|Any CPU
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Debug|x86.ActiveCfg = Debug|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Debug|x86.Build.0 = Debug|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Release|Any CPU.ActiveCfg = Release|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Release|Mixed Platforms.Build.0 = Release|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Release|x86.ActiveCfg = Release|x86
+		{987CF2D9-558B-4723-99C0-0E9047A414D9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

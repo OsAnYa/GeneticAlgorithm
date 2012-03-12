@@ -88,6 +88,10 @@ namespace OsAnYa.OPRL2.DomainModel
 
         public void Solve()
         {
+            if (Settings.MutationType == MutationType.AfterSelection)
+                Settings.MutationChance = 0;
+            if (Settings.MutationType == MutationType.BeforeSelection)
+                Settings.MutationChanceAfterCrossing = 0;
 
             FirstMutation = new Dictionary<Chromosome, Chromosome>();
 
@@ -102,7 +106,15 @@ namespace OsAnYa.OPRL2.DomainModel
 
             AfterFirstMutation = new List<Chromosome>();
             AfterFirstMutation.AddRange(InitialChromosomes);
+
+
             AfterFirstMutation.AddRange(FirstMutation.Values.AsEnumerable());
+            foreach (var item in FirstMutation.Keys)
+            {
+                if (FirstMutation[item].IsValid())
+                    AfterFirstMutation.RemoveAll(ch => ch.EqualByGenes(item));
+            }
+
 
             Pairs1 = new List<ChromosomePair>();
             for (int i = 0; i < AfterFirstMutation.Count / 2; i++)
