@@ -20,7 +20,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
             };
         private double GetCriterion(double f1, double f2)
         {
-            return f1 / f2;
+            return f1 * (double)numericUpDown9.Value - f2 * (double)numericUpDown10.Value;
+            //return Math.Pow(f1, (double)numericUpDown9.Value) / Math.Pow(f2, (double)numericUpDown10.Value);
         }
 
         private PGA alg = null;
@@ -30,11 +31,25 @@ namespace OsAnYa.OPRL2.OptimizationUI
             InitializeComponent();
 
         }
-
+        private List<OptRezult> optrez = new List<OptRezult>();
+        private List<OptRezult> finalRez = new List<OptRezult>();
         private void button1_Click(object sender, EventArgs e)
         {
-            List<OptRezult> optrez = new List<OptRezult>();
-            List<OptRezult> finalRez = new List<OptRezult>();
+            progressBar1.Value = 0;
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int progress = 0;
+            optrez.Clear();
+            finalRez.Clear();
             alg = new PGA();
             OptimizationModel optModel = new OptimizationModel(func);
             EnumConverter InitialLoadTypeCollection = new EnumConverter(typeof(InitialLoadType));
@@ -88,6 +103,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
                                     F = f
                                 });
                             }
+                            progress++;
+                            backgroundWorker1.ReportProgress(progress * 100 / 24);
                             finalRez.Add(new OptRezult()
                             {
                                 I = il,
@@ -103,16 +120,18 @@ namespace OsAnYa.OPRL2.OptimizationUI
                     }
                 }
             }
-
-
-            dataGridView1.DataSource = finalRez.OrderByDescending(i => i.F).ToList();
-            dataGridView2.DataSource = optrez;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            progressBar1.Value = e.ProgressPercentage;
+        }
 
-
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dataGridView1.DataSource = finalRez.OrderByDescending(i => i.F).ToList();
+            dataGridView2.DataSource = optrez;
+            progressBar1.Value = 0;
         }
 
 
