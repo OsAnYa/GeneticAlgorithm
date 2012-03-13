@@ -67,7 +67,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
                             double[] f1m = new double[(int)numericUpDown8.Value];
                             double[] f2m = new double[(int)numericUpDown8.Value];
                             double[] fm = new double[(int)numericUpDown8.Value];
-
+                            double[] x1m = new double[(int)numericUpDown8.Value];
+                            double[] x2m = new double[(int)numericUpDown8.Value];
                             for (int i = 0; i < (int)numericUpDown8.Value; i++)
                             {
                                 AlgorithmSettings settings = new AlgorithmSettings()
@@ -86,12 +87,16 @@ namespace OsAnYa.OPRL2.OptimizationUI
                                     MutationType = mt
                                 };
                                 alg.Run(settings);
+                                double x1 = alg.Best.X1;
+                                double x2 = alg.Best.X2;
                                 double f1 = alg.Best.F;
                                 double f2 = alg.CallCount;
                                 double f = GetCriterion(f1, f2);
                                 f1m[i] = f1;
                                 f2m[i] = f2;
                                 fm[i] = f;
+                                x1m[i] = x1;
+                                x2m[i] = x2;
                                 optrez.Add(new OptRezult()
                                 {
                                     I = il,
@@ -100,6 +105,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
                                     M = mt,
                                     F1 = f1,
                                     F2 = f2,
+                                    X1 = x1,
+                                    X2 = x2,
                                     F = f
                                 });
                             }
@@ -111,6 +118,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
                                 E = ec,
                                 S = st,
                                 M = mt,
+                                X1 = x1m.Average(),
+                                X2 = x2m.Average(),
                                 F1 = f1m.Average(),
                                 F2 = f2m.Average(),
                                 F = fm.Average()

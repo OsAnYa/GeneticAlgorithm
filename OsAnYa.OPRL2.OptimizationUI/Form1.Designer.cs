@@ -301,7 +301,7 @@
             this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown8.TabIndex = 12;
             this.numericUpDown8.Value = new decimal(new int[] {
-            500,
+            100,
             0,
             0,
             0});
@@ -351,7 +351,7 @@
             1,
             0,
             0,
-            0});
+            131072});
             // 
             // numericUpDown9
             // 
@@ -371,7 +371,7 @@
             this.numericUpDown9.Size = new System.Drawing.Size(98, 20);
             this.numericUpDown9.TabIndex = 17;
             this.numericUpDown9.Value = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
             0});
@@ -396,6 +396,8 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(175, 236);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(745, 23);

@@ -14,6 +14,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
         public MutationType M { get; set; }
         public SelectionType S { get; set; }
         public EndCondition E { get; set; }
+        public double X1 { get; set; }
+        public double X2 { get; set; }
         public double F1 { get; set; }
         public double F2 { get; set; }
         public double F { get; set; }
