@@ -34,9 +34,27 @@ namespace OsAnYa.OPRL2.Services
 
         private static ChromosomePair GetPairRoulette(List<Chromosome> chromosomes)
         {
-            ChromosomePair pair = new ChromosomePair();
-            //throw new NotImplementedException();
-            return GetPairRandom(chromosomes);
+            Chromosome ch1 = chromosomes[0];
+            Chromosome ch2 = chromosomes[1];
+            double[] range = new double[chromosomes.Count + 1];
+            double min = chromosomes.Min(ch => ch.F);
+            for (int i = 0; i < chromosomes.Count; i++)
+            {
+                range[i + 1] = range[i] + chromosomes[i].F - min;
+            }
+            double A = range[chromosomes.Count];
+            double r1 = Randomizer.Rnd.NextDouble() * A;
+            double r2 = Randomizer.Rnd.NextDouble() * A;
+            for (int i = 0; i < chromosomes.Count; i++)
+            {
+                if ((range[i] <= r1) && (r1 <= range[i + 1]))
+                    ch1 = chromosomes[i];
+                if ((range[i] <= r2) && (r2 <= range[i + 1]))
+                    ch2 = chromosomes[i];
+            }
+            ChromosomePair pair = new ChromosomePair() { Chr1 = ch1, Chr2 = ch2 };
+
+            return pair;
         }
 
         private static ChromosomePair GetPairRandom(List<Chromosome> chromosomes)
