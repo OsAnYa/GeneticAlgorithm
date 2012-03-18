@@ -27,47 +27,69 @@ namespace OsAnYa.OPRL2.Services
 
         private static Mesh GetBoxMesh(OptimizationModel optModel, int pointCount)
         {
-            Point p1 = new Point(optModel, 0, 0);
-            Point p2 = new Point(optModel, 10, 0);
-            Point p3 = new Point(optModel, -10, -10);
-            Point p4 = new Point(optModel, 0, -10);
-            Point p5 = new Point(optModel, 10, 10);
-
-            Line l1 = new Line() { P1 = p1, P2 = p5 };
-
             Mesh mesh = new Mesh();
-            mesh.Chromosomes.Add(new Chromosome(optModel, p1.X1, p1.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p2.X1, p2.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p3.X1, p3.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p4.X1, p4.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p5.X1, p5.X2));
+            for (double y = -10; y <= 10; y += 10)
+                for (double x = -10; x <= 10; x += 10)
+                    mesh.nodes.Add(new Point(optModel, x, y));
 
-            mesh.Lines.Add(l1);
+            for (double y = -5; y <= 5; y += 5)
+                for (double x = -5; x <= 5; x += 5)
+                    mesh.nodes.Add(new Point(optModel, x, y));
+
+            for (int i = 0; i <= 8; i++)
+                mesh.Lines.Add(new Line() { P1 = mesh.nodes[4], P2 = mesh.nodes[i] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[0], P2 = mesh.nodes[2] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[0], P2 = mesh.nodes[6] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[8], P2 = mesh.nodes[2] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[8], P2 = mesh.nodes[6] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[9], P2 = mesh.nodes[11] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[9], P2 = mesh.nodes[15] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[17], P2 = mesh.nodes[11] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[17], P2 = mesh.nodes[15] });
+
+
+            for (int i = 0; i < pointCount; i++)
+                mesh.Chromosomes.Add(new Chromosome(optModel, mesh.nodes[i].X1, mesh.nodes[i].X2));
 
             return mesh;
         }
 
         private static Mesh GetTriangMesh(OptimizationModel optModel, int pointCount)
         {
-            Point p1 = new Point(optModel, 0, 0);
-            Point p2 = new Point(optModel, 10, 0);
-            Point p3 = new Point(optModel, -10, -10);
-            Point p4 = new Point(optModel, 0, -10);
-            Point p5 = new Point(optModel, 10, 5);
-
-            Line l1 = new Line() { P1 = p1, P2 = p5 };
-
             Mesh mesh = new Mesh();
-            mesh.Chromosomes.Add(new Chromosome(optModel, p1.X1, p1.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p2.X1, p2.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p3.X1, p3.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p4.X1, p4.X2));
-            mesh.Chromosomes.Add(new Chromosome(optModel, p5.X1, p5.X2));
+            for (double y = -10; y <= 10; y += 10)
+                for (double x = -10; x <= 9.8; x += 6.6)
+                    mesh.nodes.Add(new Point(optModel, x, y));
 
-            mesh.Lines.Add(l1);
+            for (double y = -5; y <= 5; y += 10)
+                for (double x = -6.7; x <= 6.5; x += 6.6)
+                    mesh.nodes.Add(new Point(optModel, x, y));
+
+
+
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[0], P2 = mesh.nodes[3] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[0], P2 = mesh.nodes[10] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[0], P2 = mesh.nodes[8] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[11], P2 = mesh.nodes[3] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[11], P2 = mesh.nodes[8] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[11], P2 = mesh.nodes[1] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[9], P2 = mesh.nodes[4] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[9], P2 = mesh.nodes[1] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[9], P2 = mesh.nodes[3] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[10], P2 = mesh.nodes[2] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[10], P2 = mesh.nodes[7] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[10], P2 = mesh.nodes[0] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[2], P2 = mesh.nodes[7] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[2], P2 = mesh.nodes[8] });
+            mesh.Lines.Add(new Line() { P1 = mesh.nodes[4], P2 = mesh.nodes[1] });
+
+            for (int i = 0; i < pointCount; i++)
+                mesh.Chromosomes.Add(new Chromosome(optModel, mesh.nodes[i].X1, mesh.nodes[i].X2));
+
 
             return mesh;
         }
+
 
     }
 }

@@ -18,6 +18,7 @@ namespace OsAnYa.OPRL2.Core
         public void Run(AlgorithmSettings settings)
         {
             settings.OptModel.ResetCallCount();
+            Chromosome.ResetIdentity();
             InitialMesh = MeshService.GetMesh(settings.OptModel, settings.InitialPointCount, settings.InitialLoadType);
             Generations = new List<Generation>();
             Generations.Add(new Generation(InitialMesh.Chromosomes, settings));

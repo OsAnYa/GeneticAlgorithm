@@ -8,6 +8,10 @@ namespace OsAnYa.OPRL2.DomainModel
     public class Chromosome
     {
         private static int identity = 0;
+        public static void ResetIdentity()
+        {
+            identity = 0;
+        }
         private bool[] m_Genes;
         private OptimizationModel m_OptModel = null;
         public int Id { get; private set; }
