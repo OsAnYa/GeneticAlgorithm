@@ -19,5 +19,8 @@ namespace OsAnYa.OPRL2.OptimizationUI
         public double F1 { get; set; }
         public double F2 { get; set; }
         public double F { get; set; }
+        public double N1 { get; set; }
+        public double N2 { get; set; }
+        public double N { get; set; }
     }
 }

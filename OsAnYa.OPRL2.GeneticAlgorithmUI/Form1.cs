@@ -16,7 +16,7 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
     {
         Func<double, double, double> func = (double x1, double x2) =>
             {
-                return 100 - x1 * x2;
+                return 1.5 * x1 * x1 * Math.Exp((x1 + x2) / 100) * x2;
             };
 
 
@@ -98,7 +98,7 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
 
         private void DrawRezult(PGA alg)
         {
-
+            numericUpDown8.Maximum = alg.Generations.Count - 1;
 
             desc.Clear();
             desc.DrawMesh(alg.InitialMesh, Pens.Red);
@@ -229,12 +229,41 @@ namespace OsAnYa.OPRL2.GeneticAlgorithmUI
 
         private void WriteChomosome(Chromosome chr, string comment = "")
         {
-            richTextBox1.Text += chr.GId + "." + chr.Id + "\t" + chr.X1 + "\t" + chr.X2 + "\t" + chr + "\t" + chr.F + comment + "\n";
+            richTextBox1.Text += chr.GId + "." + chr.Id + "\t" + chr.X1 + "\t" + chr.X2 + "\t" + chr + "\t" + Math.Round(chr.F, 4) + comment + "\n";
         }
 
         private void WriteLine(string str = "")
         {
             richTextBox1.Text += str + "\n";
+        }
+
+        private void numericUpDown8_ValueChanged(object sender, EventArgs e)
+        {
+            desc.Clear();
+            desc.DrawMesh(alg.InitialMesh, Pens.Red);
+
+
+            foreach (var item in alg.Generations[(int)numericUpDown8.Value].AfterFirstMutation)
+            {
+
+                desc.AddCircle((float)item.X1, (float)item.X2, 3, Pens.Blue, true);
+                desc.AddText(item.GId + "." + item.Id, (float)item.X1, (float)item.X2);
+            }
+
+            foreach (var item in alg.Generations[(int)numericUpDown8.Value].InitialChromosomes)
+            {
+
+                desc.AddCircle((float)item.X1, (float)item.X2, 3, Pens.Red, true);
+                desc.AddText(item.GId + "." + item.Id, (float)item.X1, (float)item.X2);
+            }
+
+            foreach (var item in alg.Generations[(int)numericUpDown8.Value].GeneticOperationRezults)
+            {
+
+                desc.AddCircle((float)item.X1, (float)item.X2, 3, Pens.Green, true);
+                desc.AddText(item.GId + "." + item.Id, (float)item.X1, (float)item.X2);
+            }
+            desc.Update();
         }
     }
 }

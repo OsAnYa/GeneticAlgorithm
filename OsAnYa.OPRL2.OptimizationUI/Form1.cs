@@ -16,7 +16,7 @@ namespace OsAnYa.OPRL2.OptimizationUI
     {
         Func<double, double, double> func = (double x1, double x2) =>
             {
-                return 100 - x1 * x2;
+                return 1.5 * x1 * x1 * Math.Exp((x1 + x2) / 100) * x2;
             };
         private double GetCriterion(double f1, double f2)
         {
@@ -138,7 +138,15 @@ namespace OsAnYa.OPRL2.OptimizationUI
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dataGridView1.DataSource = finalRez.OrderByDescending(i => i.F).ToList();
+            double n1max = finalRez.Max(p => Math.Abs(p.F1));
+            double n2max = finalRez.Max(p => Math.Abs(p.F2));
+            foreach (var item in finalRez)
+            {
+                item.N1 = item.F1 / n1max;
+                item.N2 = item.F2 / n2max;
+                item.N = GetCriterion(item.N1, item.N2);
+            }
+            dataGridView1.DataSource = finalRez.OrderByDescending(i => i.N).ToList();
             dataGridView2.DataSource = optrez;
             progressBar1.Value = 0;
         }

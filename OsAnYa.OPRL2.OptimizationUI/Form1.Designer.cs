@@ -281,7 +281,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(175, 9);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(745, 221);
+            this.dataGridView1.Size = new System.Drawing.Size(1033, 221);
             this.dataGridView1.TabIndex = 11;
             // 
             // numericUpDown8
@@ -314,7 +314,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(175, 265);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(745, 240);
+            this.dataGridView2.Size = new System.Drawing.Size(1033, 240);
             this.dataGridView2.TabIndex = 11;
             // 
             // groupBox1
@@ -400,7 +400,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(175, 236);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(745, 23);
+            this.progressBar1.Size = new System.Drawing.Size(1033, 23);
             this.progressBar1.TabIndex = 16;
             // 
             // backgroundWorker1
@@ -414,7 +414,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 517);
+            this.ClientSize = new System.Drawing.Size(1220, 517);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericUpDown8);

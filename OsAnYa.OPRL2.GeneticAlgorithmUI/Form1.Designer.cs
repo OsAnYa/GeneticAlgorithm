@@ -51,6 +51,7 @@
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -385,11 +387,21 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Тип мутации";
             // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDown8.Location = new System.Drawing.Point(95, 483);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown8.TabIndex = 11;
+            this.numericUpDown8.ValueChanged += new System.EventHandler(this.numericUpDown8_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 517);
+            this.Controls.Add(this.numericUpDown8);
             this.Controls.Add(this.numericUpDown6);
             this.Controls.Add(this.numericUpDown7);
             this.Controls.Add(this.numericUpDown4);
@@ -424,6 +436,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,6 +467,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown7;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown numericUpDown8;
     }
 }
 
